@@ -1,0 +1,256 @@
+<!DOCTYPE html> <!-- Tells the browser this is an HTML5 document -->
+
+<html>
+<head>
+
+    <!-- Title shown in the browser tab -->
+    <title>Q3 Seatwork 2</title>
+
+    <!-- Bootstrap CSS framework for ready-made styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+
+      /* Style for summary tag */
+      summary{
+        background-color: rgb(38, 17, 226);
+      }  
+
+      /* Set fixed height and width for store images */
+      #villman, #silicon, #express{
+          height: 100px;
+          width: 300px;
+      }
+
+      /* Make row display horizontally using flexbox */
+      .row {
+        display: flex;
+        text-align: center;
+      }
+
+      /* Make each div inside row share equal space */
+      .row div {
+        flex: 1; 
+      }
+
+      /* Style for the budget container */
+      #brands{
+        width: 860px;
+        background-color: rgba(0, 215, 252, 0.5); 
+        height: 200px;
+        padding: 20px;
+      }
+
+      /* Body styling */
+      body{
+        font-family: Comic Sans MS;
+        background-image: url(https://i.pinimg.com/1200x/6d/31/46/6d314635296b415b0037905eb0dc3473.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      /* Navbar gradient background */
+      .navbar{
+        background-image: linear-gradient(to right, #061f45, #0a60d1);
+      }
+
+      /* Main title styling */
+      h1{
+        color: white;
+        text-shadow: 2px 2px #484a49;
+      }
+
+      /* Main buttons styling */
+      #buttons, #brand_btn{
+        color: white;
+        background-color: #161f36; 
+        border: 3px solid gray;
+        border-radius: 20px;
+        width: 300px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      /* Brand buttons smaller font */
+      #brand_btn{
+        font-size: 15px;
+        background-image: linear-gradient(to right, black, #161f36);
+      }
+
+      /* Laptop gif size */
+      #laptop{
+        height: 60px;
+        width: 60px;
+      }
+
+      /* Budget input styling */
+      #budget{
+        text-align: center;
+        font-size: 25px;
+        color: #072f70;
+      }
+
+      /* Footer styling */
+      .footer {
+        margin-top: 10%;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: white;
+      }
+
+      /* Bold background */
+      b{
+        background-color: gray;
+      }
+
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION BAR -->
+<nav class="navbar navbar-expand-md">
+  <div class="container-fluid">
+
+    <!-- Left side links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#" style="font-size: 20px; color: white;">Shop</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" style="font-size: 20px; color: white;">Locate</a>
+      </li>
+    </ul>
+
+    <!-- Center Title -->
+    <center>
+      <h1>Poke Locator ⚽♣️</h1>
+    </center>
+
+    <!-- Search Bar -->
+    <form class="d-flex">
+      <input class="form-control me-2" type="text" placeholder="Search">
+      <button class="btn btn-primary" type="button">Search</button>
+    </form>
+
+  </div>
+</nav>
+
+<br>
+
+<!-- BUDGET SECTION -->
+<center>
+<div id="brands">
+
+  <form>
+    <h3>
+      Want Pokemon Cards?
+      <img id="laptop" src="https://i.gifer.com/embedded/download/YCZM.gif">
+      <br>
+      Enter your budget, then are you ready for a pokemon adventure?!! ♦️
+    </h3> 
+
+    <!-- User types budget here -->
+    <input type="text" class="form-control" id="budget" placeholder="Enter here...">
+  </form>
+
+</div>
+</center>
+
+<br>
+
+<!-- BUTTON SECTION -->
+<div class="container">
+  <div class="row">
+
+    <!-- Brand & Discount Button -->
+    <div>
+      <button id="buttons" class="btn" onclick="showBrand()">
+        Recommended Stores & Discounts 🏪
+      </button>
+
+      <!-- Output will appear here -->
+      <div id="brand"></div>
+    </div>
+
+    <!-- Store Location Button -->
+    <div>
+      <button id="buttons" class="btn" onclick="showStore()">
+        Store Location
+      </button>
+
+      <!-- Store info will appear here -->
+      <div id="stores"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- JAVASCRIPT SECTION -->
+<script>
+
+  // Function runs when Brand & Discounts button is clicked
+  function showBrand(){
+
+    // Get value from input field and convert to number
+    let budget = Number(document.getElementById('budget').value);
+
+    // Compute 20% discount
+    let disc = budget * 0.35;
+
+    // Format discount to 2 decimal places
+    let finalPrice = disc.toFixed(2);
+
+    // Display brands and discount inside "brand" div
+    document.getElementById("brand").innerHTML =
+
+      "<br><b style='color: white;'>Recommended Stores:<br>" +
+
+      "<button id='brand_btn' class='btn'>ToysRUs</button><br>" +
+
+      "<button id='brand_btn' class='btn'>Toy Kingdom</button><br>" +
+
+      "<button id='brand_btn' class='btn'>7-11 - LIMITED & RARE STOCK ONLY!! - Get it while they're on stock</button><br>" +
+
+      "<br><br>You are eligible for: " +
+
+      "<span style='color: red;'><kbd style='font-size: 25px;'>" +
+      finalPrice +
+      "</kbd></span> discount.</b>";
+  }
+
+
+  // Function runs when Store Location button is clicked
+  function showStore(){
+
+    // Insert store information inside "stores" div
+    document.getElementById("stores").innerHTML =
+
+      "<br><img id='villman' src='https://download.logo.wine/logo/Toys_%22R%22_Us/Toys_%22R%22_Us-Logo.wine.png' class='img-thumbnail'><br>" +
+
+      "<br><b style='color: white;'>Location:<br>" +
+
+      "<i> 2nd Level, Glorietta 1, Ayala Center, Makati City, Metro Manila</i><br>" +
+
+      "<br><img id='silicon' src='https://cdn.shopify.com/s/files/1/0383/4085/3804/files/TKlogo-2lines_480x480.png?v=1590984397' class='img-thumbnail'><br>" +
+
+      "<br><b style='color: white;'>Location:<br>" +
+
+      "<i>2/F SM Makati Annex Bldg, SM Makati, Ayala Center, Makati City, Metro Manila</i>";
+
+  }
+
+</script>
+
+<br><br><br>
+
+<!-- FOOTER -->
+<div class="footer">
+  <hr style="color:white;">
+  <center>&copy; <label style="color:white;">by Rafa Teylan | 9 - Ruby</label></center>
+</div>
+
+</body>
+</html>
